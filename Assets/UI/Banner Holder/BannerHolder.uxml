@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Main/Main.uss?fileID=7433441132597879392&amp;guid=58bdd5d9451b7e24dbe44a3734332b2a&amp;type=3#Main" />
+    <Style src="project://database/Assets/UI/Banner%20Holder/BannerHolder.uss?fileID=7433441132597879392&amp;guid=b267f1a788d729641aa9bff2ed0e8708&amp;type=3#BannerHolder" />
+</ui:UXML>
