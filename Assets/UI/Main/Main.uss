@@ -25,6 +25,7 @@
 }
 
 .unity-text-element {
+    -unity-font-definition: url('project://database/Assets/undertale_battle_font%20SDF.asset?fileID=11400000&guid=508758cc65aa264448f3facb72d517a6&type=2#undertale_battle_font SDF');
     white-space: normal;
 }
 
@@ -50,11 +51,11 @@
 }
 
 .unity-progress-bar__background {
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    background-color: rgb(255, 107, 0);
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    background-color: rgb(42, 63, 85);
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -62,11 +63,11 @@
 }
 
 .unity-progress-bar__progress {
-    background-color: rgb(255, 0, 190);
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
+    background-color: rgb(0, 191, 0);
 }
 
 .unity-progress-bar__title-container {

@@ -9,10 +9,14 @@ public class InputManager : MonoBehaviour
     private int _score;
 
     public UnityEvent<int> OnScoreChanged;
-    
+    public UnityEvent OnLanguageSwap;
+
     private void Update()
     {
-        InputUpdate();
+        if (LanguageCheck)
+            InputUpdate();
+        else
+            OnLanguageSwap?.Invoke();
     }
 
     private void InputUpdate()
@@ -43,6 +47,8 @@ public class InputManager : MonoBehaviour
 
         return amount;
     }
+
+    private bool LanguageCheck => Application.systemLanguage == SystemLanguage.Russian;
 
     public void SetRule(InputRule rule, int ruleTime)
     {

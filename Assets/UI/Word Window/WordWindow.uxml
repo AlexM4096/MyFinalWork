@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Main/Main.uss?fileID=7433441132597879392&amp;guid=58bdd5d9451b7e24dbe44a3734332b2a&amp;type=3#Main" />
     <Style src="project://database/Assets/UI/Word%20Window/WordWindow.uss?fileID=7433441132597879392&amp;guid=d97b4c57898d5f04cb68b0a9dbd6c727&amp;type=3#WordWindow" />
-    <ui:VisualElement name="Backround" class="backround" style="background-color: rgb(0, 123, 195); justify-content: center; align-items: center;">
-        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" style="height: 821px; width: 872px; font-size: 64px; -unity-text-align: lower-left;" />
+    <ui:VisualElement name="Backround" class="backround" style="justify-content: flex-end; align-items: center; background-image: url(&apos;project://database/Assets/2.png?fileID=21300000&amp;guid=8b5a9cb9cc372184cb50f51a226c114e&amp;type=3#2&apos;);">
+        <ui:Label tabindex="-1" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLaLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelbelLabelLabelLabel" display-tooltip-when-elided="true" style="height: 970px; width: 872px; font-size: 48px; -unity-text-align: lower-left; background-color: rgb(255, 255, 255); margin-bottom: 11px; padding-left: 50px; padding-right: 50px; padding-top: 0; padding-bottom: 50px; overflow: hidden;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -16,6 +15,8 @@ public class BannerSpawner : MonoBehaviour
     private int _mistakes;
     private List<DefaultBanner> _banners = new List<DefaultBanner>();
 
+    private List<Sprite> _sprites;
+
     public UnityEvent OnSpawnBanner;
     public UnityEvent OnSpawnRuleBanner;
 
@@ -29,6 +30,8 @@ public class BannerSpawner : MonoBehaviour
         _root.Add(_ruleBanner);
 
         _screenSize = new Vector2Int(Screen.width, Screen.height);
+
+        _sprites = Resources.LoadAll<Sprite>("BannerImages").ToList();
     }
 
     public void SpawnBanner(int amount)
@@ -50,7 +53,8 @@ public class BannerSpawner : MonoBehaviour
 
         banner.Reposition(rad);
         banner.Resize(400, 300);
-        
+        banner.inside.sprite = _sprites[Random.Range(0, _sprites.Count)];
+
         StopAllCoroutines();
         _root.Add(banner);
         _banners.Add(banner);
@@ -65,26 +69,11 @@ public class BannerSpawner : MonoBehaviour
 
     public void SpawnRuleBanner(InputRule rule, int ruleTime)
     {
-        Vector2Int oldPos = _ruleBanner.Position();
-        
         _ruleBanner.SetRule(rule, ruleTime);
         _ruleBanner.SetActive(true);
         SetRandomBannerPos(_ruleBanner);
 
-        StartCoroutine(ReposBanners(_ruleBanner.Position() - oldPos));
-
         OnSpawnRuleBanner?.Invoke();
-    }
-
-    private IEnumerator ReposBanners(Vector2Int delta)
-    {
-        foreach (var bn in _banners)
-        {
-            Vector2Int newPos = bn.Position() + delta;
-            newPos.Clamp(Vector2Int.zero, _screenSize - bn.Size());
-            bn.Reposition(newPos);
-            yield return new WaitForSeconds(0.1f);
-        }
     }
 
     private void SetRandomBannerPos(IBanner banner)

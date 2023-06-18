@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -12,6 +13,7 @@ public class RuleManager : MonoBehaviour
 
     private void Start()
     {
+        _rules = Resources.LoadAll<InputRule>("InputRules").ToList();
         StartCoroutine(ChooseNewRule());
     }
 
@@ -23,19 +25,20 @@ public class RuleManager : MonoBehaviour
             return null;
         }
 
-        InputRule rule = _rules[Random.Range(0, _rules.Count - 1)];
+        InputRule rule = _rules[Random.Range(0, _rules.Count)];
         return rule;
     }
 
-    IEnumerator ChooseNewRule()
+    private IEnumerator ChooseNewRule()
     {
         int ruleTime;
         InputRule rule;
         
         while (true)
         {
-            ruleTime = Random.Range(5, 10);
+            
             rule = RandomRule();
+            ruleTime = Random.Range(rule.Duration.x, rule.Duration.y + 1);
             OnRuleChange?.Invoke(rule, ruleTime);
             yield return new WaitForSeconds(ruleTime);
         }
